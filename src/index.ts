@@ -10,6 +10,7 @@ app.use(express.json());
 app.use(router);
 
 app.listen(port, async () => {
+    
     const dbConnection = new DbConnection();
     await dbConnection.connectToDatabase();
     console.log(`Server running at http://localhost:${port}`);
