@@ -2,13 +2,14 @@ import { Sequelize } from "sequelize";
 
 export class DbConnection {
   private static sequelize = new Sequelize({
-    dialect: "postgres",
-    host: "cert-school.cgj2xti8wnfl.ap-south-1.rds.amazonaws.com",
+    dialect: "mssql",
+    host: "certschool.database.windows.net",
     database: "certschool",
-    port: 5432,
+    port: 1433,
     username: "certschool",
-    password: "14E41A0593",
+    password: "14E41a0593",
     dialectOptions: {
+      requestTimeout: 60000,
       ssl: {
         rejectUnauthorized: false,
       },
