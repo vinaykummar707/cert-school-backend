@@ -3,7 +3,7 @@ import { Sequelize } from "sequelize";
 export class DbConnection {
   private static sequelize = new Sequelize({
     dialect: "mssql",
-    host: "certschool.database.windows.net",
+    host: "adarsh-cert-sql-server.database.windows.net",
     database: "certschool",
     port: 1433,
     username: "certschool",
