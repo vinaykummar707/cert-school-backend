@@ -29,19 +29,19 @@ Student.init(
     },
     MobileNumber: {
       type: DataTypes.STRING,
-      allowNull: false,
+     
     },
     Address: {
       type: DataTypes.STRING,
-      allowNull: false,
+      
     },
     City: {
       type: DataTypes.STRING,
-      allowNull: false,
+    
     },
     State: {
       type: DataTypes.STRING,
-      allowNull: false,
+      
     },
     SchoolId: {
       type: DataTypes.STRING,
