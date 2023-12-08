@@ -31,8 +31,8 @@ Certificate.init({
         allowNull: false
     },
     isActive: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: true
+        type: DataTypes.INTEGER,
+        defaultValue: 1
     }
 }, {
     sequelize, tableName: 'certificates'

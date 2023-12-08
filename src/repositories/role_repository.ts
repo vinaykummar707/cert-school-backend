@@ -5,7 +5,7 @@ export class RoleRespository {
   async getAllRoles(schoolId: string): Promise<any> {
     try {
       return await Role.findAll({
-        where: {isActive: true, schoolId: schoolId},
+        where: {isActive: 1, schoolId: schoolId},
         order: [["createdAt", "DESC"]],
       });
     } catch (error) {
@@ -45,7 +45,7 @@ export class RoleRespository {
     try {
       return await Role.update(
         {
-          isActive: false
+          isActive: 0
         },
         {
           where: {

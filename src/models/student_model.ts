@@ -47,13 +47,10 @@ Student.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    GraduationDate:  {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+ 
     isActive: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true,
+      type: DataTypes.INTEGER,
+      defaultValue: 1,
     },
   },
   {

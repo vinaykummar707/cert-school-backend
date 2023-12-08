@@ -20,8 +20,8 @@ Role.init({
         allowNull: false
     },
     isActive: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false
+        type: DataTypes.INTEGER,
+        defaultValue: 1
     }
 }, {
     sequelize, tableName: 'roles'

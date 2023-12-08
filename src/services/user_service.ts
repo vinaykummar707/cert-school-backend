@@ -1,6 +1,7 @@
 import { UserRespository } from "../repositories/user_repository";
 import { buildResponse, sendError } from "../utilities/utilities";
-
+import {readFileSync, writeFileSync } from "fs";
+import { readFile } from "fs/promises";
 export class UserService {
   userRepo = new UserRespository();
 
@@ -18,6 +19,8 @@ export class UserService {
     
     if (results.length > 0) {
         if(results[0].username === body.username && results[0].password === body.password){
+     
+        
           return buildResponse(results, false, "Fetched Users Successfully");
         } else {
           return buildResponse(results, true, "No Users Found")

@@ -6,7 +6,7 @@ export class UserRespository {
   async getAllUsers(schoolId: string): Promise<any> {
     try {
       return await User.findAll({
-        where: {isActive: true, schoolId: schoolId},
+        where: {isActive: 1, schoolId: schoolId},
         order: [["createdAt", "DESC"]],
         include: 
             { model: Role, as: "role", required: true,  },
@@ -28,7 +28,7 @@ export class UserRespository {
   async getUserByUsername(username: string) {
     try {
       return await User.findAll({
-        where: {isActive: true, username: username},
+        where: {isActive: 1, username: username},
         include: [
             { model: Role, as: "role", required: true },
           ],
@@ -62,7 +62,7 @@ export class UserRespository {
     try {
       return await User.update(
         {
-          isActive: false
+          isActive: 0
         },
         {
           where: {

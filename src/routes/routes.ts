@@ -4,6 +4,7 @@ import { activityRouter } from "./activity_routes";
 import { roleRouter } from "./role_routes";
 import { userRouter } from "./user_routes";
 import { certificateRouter } from "./certificates_routes";
+import { readFile, writeFile } from "fs/promises";
 export const router = Router();
 
 
@@ -13,3 +14,12 @@ router.use('/activity', activityRouter);
 router.use('/user', userRouter);
 router.use('/role', roleRouter);
 router.use('/certificate', certificateRouter);
+router.get('/config',async (req,res) => {
+    const data = await readFile("./config.json",'utf-8');
+    res.json(JSON.parse(data));
+})
+
+router.post('/config',async (req,res) => {
+    const data = await writeFile('./config.json' ,JSON.stringify(req.body),'utf-8');
+    res.json(data);
+})

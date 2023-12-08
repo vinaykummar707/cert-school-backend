@@ -5,7 +5,7 @@ export class StudentRespository {
   async getAllStudents(schoolId: string): Promise<any> {
     try {
       return await Student.findAll({
-        where: {isActive: true, SchoolId: schoolId},
+        where: {isActive: 1, SchoolId: schoolId},
         order: [["createdAt", "DESC"]],
       });
     } catch (error) {
@@ -47,7 +47,7 @@ export class StudentRespository {
     try {
       return await Student.update(
         {
-          isActive: false
+          isActive: 0
         },
         {
           where: {

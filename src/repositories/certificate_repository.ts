@@ -7,7 +7,7 @@ export class CertificateRespository {
   async getAllCertificates(schoolId: string): Promise<any> {
     try {
       return await Certificate.findAll({
-        where: { isActive: true, schoolId: schoolId },
+        where: { isActive: 1, schoolId: schoolId },
         order: [["createdAt", "DESC"]],
         include: [
           { model: Activity, as: "activity" },
@@ -52,7 +52,7 @@ export class CertificateRespository {
     try {
       return await Certificate.update(
         {
-          isActive: false,
+          isActive: 0,
         },
         {
           where: {

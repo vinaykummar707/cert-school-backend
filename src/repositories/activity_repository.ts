@@ -5,22 +5,10 @@ export class ActivityRespository {
   async getAllActivitys(activityType: string, schoolId: string): Promise<any> {
     
     try {
-      if(activityType === 'education' || activityType === 'event') {
+       
         return await Activity.findAll({
           where: {
-            isActive: true,
-            schoolId:schoolId,
-            ActivityType: activityType
-          },
-          include: [
-            { model: Student, as: "student", required: true },
-          ],
-          order: [["createdAt", "DESC"]],
-        });
-      } else {
-        return await Activity.findAll({
-          where: {
-            isActive: true,
+            isActive: 1,
             schoolId:schoolId,
           },
           include: [
@@ -28,7 +16,7 @@ export class ActivityRespository {
           ],
           order: [["createdAt", "DESC"]],
         });
-      }
+   
 
     } catch (error) {
       console.log(error);
@@ -93,7 +81,7 @@ export class ActivityRespository {
     try {
       return await Activity.update(
         {
-          isActive: false,
+          isActive: 0,
         },
         {
           where: {

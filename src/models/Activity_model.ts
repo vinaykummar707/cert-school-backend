@@ -65,9 +65,19 @@ Activity.init(
       type: DataTypes.STRING,
       allowNull:false
     },
+    SchoolName: {
+      type: DataTypes.STRING,
+    },
+    SchoolAddress: {
+      type: DataTypes.STRING,
+    },
+    StudyingSsc: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
+    },
     isActive: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true,
+      type: DataTypes.INTEGER,
+      defaultValue: 1,
     },
   },
   {

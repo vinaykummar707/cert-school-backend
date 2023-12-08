@@ -1,12 +1,14 @@
 import { ActivityRespository } from "../repositories/activity_repository";
 import { buildResponse, sendError } from "../utilities/utilities";
-import { log } from "console";
+import { readFile } from "fs/promises";
 
 export class ActivityService {
   activityRepo = new ActivityRespository();
 
   async getAllActivitys(activityType: string, schoolId: string) {
     const results: any = await this.activityRepo.getAllActivitys(activityType,schoolId);
+    const data = await readFile("./config.json",'utf-8');
+    console.log(data);
     if (results.length > 0)
       return buildResponse(results, false, "Fetched Activitys Successfully");
     else return buildResponse(results, true, "No Activitys Found");
