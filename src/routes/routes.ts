@@ -5,6 +5,7 @@ import { roleRouter } from "./role_routes";
 import { userRouter } from "./user_routes";
 import { certificateRouter } from "./certificates_routes";
 import { readFile, writeFile } from "fs/promises";
+import { DbConnection } from "../connections/db_connection";
 export const router = Router();
 
 
@@ -22,4 +23,13 @@ router.get('/config',async (req,res) => {
 router.post('/config',async (req,res) => {
     const data = await writeFile('./config.json' ,JSON.stringify(req.body),'utf-8');
     res.json(data);
+})
+
+router.get('/top-students/:edu/:year',async (req,res) => {
+    const sequelize = DbConnection.getSequelize;
+    const da: any =await sequelize.query('exec GetTopStudentInfo :EduPassed, :yearPassed',
+        { replacements: { EduPassed: req.params.edu, yearPassed: parseInt(req.params.year)},
+          raw: true }
+      )
+      res.json(da);
 })
