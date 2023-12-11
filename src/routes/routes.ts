@@ -33,3 +33,19 @@ router.get('/top-students/:edu/:year',async (req,res) => {
       )
       res.json(da);
 })
+
+router.get('/eduPassed',async (req,res) => {
+    const sequelize = DbConnection.getSequelize;
+    const da: any =await sequelize.query('exec GetEducationPassed',
+        {raw: true }
+      )
+      res.json(da);
+})
+
+router.get('/eduStream',async (req,res) => {
+    const sequelize = DbConnection.getSequelize;
+    const da: any =await sequelize.query('exec GetEducationStream',
+        {raw: true }
+      )
+      res.json(da);
+})
