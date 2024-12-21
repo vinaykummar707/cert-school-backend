@@ -6,6 +6,8 @@ import { userRouter } from "./user_routes";
 import { certificateRouter } from "./certificates_routes";
 import { readFile, writeFile } from "fs/promises";
 import { DbConnection } from "../connections/db_connection";
+import { CertificateController } from "../controllers/certificate_controller";
+import { StudentController } from "../controllers/student_controller";
 export const router = Router();
 
 router.use("/student", studentRouter);
@@ -44,22 +46,37 @@ router.post("/top-students", async (req, res) => {
   res.json(da);
 });
 
-router.get("/top-sports/:event/:year", async (req, res) => {
-    console.log(req.body, parseInt(req.body.year));
-    const sequelize = DbConnection.getSequelize;
-    const da: any = await sequelize.query(
-      "exec GetTopSportsInfo :event, :eventYear",
-      {
-        replacements: {
-          event: req.params.event,
-          eventYear: parseInt(req.params.year),
-        },
-        raw: true,
-      }
-    );
-    res.json(da);
+router.get("/cert-details/:id", async (req, res) => {
+  console.log(req.body, parseInt(req.body.year));
+  const sequelize = DbConnection.getSequelize;
+  const da: any = await sequelize.query(
+    "exec spc_GetStudentCertDetails :StudentId",
+    {
+      replacements: {
+        StudentId: req.params.id,
+      },
+      raw: true,
+    }
+  );
+  res.json(da);
 });
-  
+
+router.get("/top-sports/:event/:year", async (req, res) => {
+  console.log(req.body, parseInt(req.body.year));
+  const sequelize = DbConnection.getSequelize;
+  const da: any = await sequelize.query(
+    "exec GetTopSportsInfo :event, :eventYear",
+    {
+      replacements: {
+        event: req.params.event,
+        eventYear: parseInt(req.params.year),
+      },
+      raw: true,
+    }
+  );
+  res.json(da);
+});
+
 router.get("/eduPassed", async (req, res) => {
   const sequelize = DbConnection.getSequelize;
   const da: any = await sequelize.query("exec GetEducationPassed", {
