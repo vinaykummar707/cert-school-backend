@@ -92,3 +92,17 @@ router.get("/eduStream", async (req, res) => {
   });
   res.json(da);
 });
+
+router.get("/top-ssc/:year", async (req, res) => {
+  const sequelize = DbConnection.getSequelize;
+  const da: any = await sequelize.query(
+    "exec GetSSCModelPaperInfo :yearStudying",
+    {
+      replacements: {
+        yearStudying: req.params.year,
+      },
+      raw: true,
+    }
+  );
+  res.json(da);
+});

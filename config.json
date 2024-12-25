@@ -1,1 +1,51 @@
-{"orientationTypes":["landscape","portrait"],"unitTypes":["cm","mm","px"],"orientation":"landscape","unit":"px","showRegPage":"yes","size":{"height":600,"width":800},"printData":{"StudentName":{"x":450,"y":250,"transform":0,"color":"#000","text":"student","fontSize":24},"FatherName":{"x":100,"y":300,"transform":0,"color":"#000","text":"student","fontSize":24},"Class_Event":{"x":450,"y":350,"transform":0,"color":"#000","text":"student","fontSize":24},"PassYear":{"x":100,"y":400,"transform":0,"color":"#000","text":"student","fontSize":24}}}
+{
+  "orientationTypes": ["landscape", "portrait"],
+  "unitTypes": ["cm", "mm", "px"],
+  "fontTypes": [
+    "EB_Garamond",
+    "Libre_Baskerville",
+    "Libre_Caslon_Text",
+    "Nunito_Sans",
+    "Open_Sans"
+  ],
+  "font": "EB_Garamond",
+  "orientation": "landscape",
+  "unit": "px",
+  "showRegPage": "no",
+  "size": { "height": 600, "width": 800 },
+  "printData": {
+    "StudentName": {
+      "x": 430,
+      "y": 360,
+      "transform": 0,
+      "color": "red",
+      "text": "student",
+      "fontSize": 24
+    },
+    "FatherName": {
+      "x": 250,
+      "y": 398,
+      "transform": 0,
+      "color": "red",
+      "text": "student",
+      "fontSize": 24
+    },
+    "Class_Event": {
+      "x": 250,
+      "y": 430,
+      "transform": 0,
+      "color": "green",
+      "text": "student",
+      "fontSize": 24
+    },
+    "PassYear": {
+      "x": 690,
+      "y": 430,
+      "transform": 0,
+      "color": "green",
+      "text": "student",
+      "fontSize": 24
+    }
+  },
+  "regPageStopMsg": "test"
+}
