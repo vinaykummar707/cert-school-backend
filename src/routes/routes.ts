@@ -37,7 +37,7 @@ router.post("/top-students", async (req, res) => {
     {
       replacements: {
         EduPassed: req.body.EducationPassed,
-        EduStream: null,
+        EduStream: req.body.BoardStream,
         yearPassed: parseInt(req.body.year),
       },
       raw: true,
